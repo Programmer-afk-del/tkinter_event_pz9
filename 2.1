@@ -1,0 +1,29 @@
+from tkinter import *
+
+root = Tk()
+root.title("Привітання")
+root.geometry('400x150')
+root.configure(bg='blue')
+
+def welcome():
+    name = edit1.get()
+    result_label.config(text=f'Вітаю {name}')
+
+# Ввід ім’я
+label1 = Label(text="Введіть ім'я", width=20, bg='yellow')
+edit1 = Entry(width=20)
+
+# Кнопка
+button1 = Button(text="OK", width=10, command=welcome)
+
+# Порожній напис, у який виводиться результат
+result_label = Label(text="", width=30, bg='white')
+
+# Розміщення елементів
+label1.grid(row=0, column=0, padx=5, pady=5)
+edit1.grid(row=0, column=1, padx=5, pady=5)
+button1.grid(row=1, column=0, columnspan=2, pady=5)
+result_label.grid(row=2, column=0, columnspan=2, pady=10)
+
+root.mainloop()
+

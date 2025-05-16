@@ -1,0 +1,37 @@
+from tkinter import *
+from tkinter import ttk
+
+#Словник країн та їх столиць
+
+countries_capitals = {
+    'Велика Британія': 'Лондон',
+    'Україна': 'Київ',
+    'Франція': 'Париж',
+    'Чехія': 'Прага',
+    'Польща': 'Варшава' }
+
+def show_capital(event=None):
+    country = combo.get()
+    capital = countries_capitals.get(country, 'Не знайдено')
+    label2.config(text=capital)
+
+root = Tk()
+root.title('Країни та столиці')
+root.geometry('350x200')
+
+label1 = Label(root, text='Виберіть країну:')
+label1.grid(column=0, row=0)
+
+combo = ttk.Combobox(root, values=list(countries_capitals.keys()), width=30)
+combo.grid(column=0, row=1)
+combo.current(0)
+
+btn = Button(root, text='Показати столицю', command=show_capital)
+btn.grid(column=0, row=2)
+
+label2 = Label(root, text='')
+label2.grid(column=0, row=3)
+
+root.bind("<Return>", show_capital)
+
+root.mainloop()

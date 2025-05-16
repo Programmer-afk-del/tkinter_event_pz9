@@ -1,0 +1,23 @@
+from tkinter import *
+from tkinter import messagebox
+
+root = Tk()
+root.geometry("300x100+600+400")
+root.title("Привітання")
+
+str_var = StringVar()  # створення об’єкта для отримання значення з текстового поля
+
+def button_click():
+    messagebox.showinfo("Привітання", "Вітаю " + str_var.get() + "!")
+
+# Розміщення віджетів за допомогою pack()
+label = Label(text="Введіть ім'я:")  
+label.pack()
+
+edit = Entry(root, textvariable=str_var)
+edit.pack()
+
+button = Button(root, text="Ok!", command=button_click)
+button.pack()
+
+root.mainloop()
